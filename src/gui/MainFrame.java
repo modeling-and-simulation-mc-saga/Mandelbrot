@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gui;
 
 import java.awt.Font;
@@ -11,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBoxMenuItem;
-import model.Mandelbrot;
+import model.*;
 
 /**
  *
@@ -19,7 +14,7 @@ import model.Mandelbrot;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    private Mandelbrot sys = null;
+    private AbstractChaosMap sys = null;
     private ButtonGroup radiusGroup;
     private final Font font;
 
@@ -66,15 +61,14 @@ public class MainFrame extends javax.swing.JFrame {
             return;
         }
         switch (evt.getEventType()) {
-            case NewArea:
+            case NewArea ->
                 sys.selectArea(evt.getRect());
-                break;
-            case SetCenter:
+            case SetCenter ->
                 sys.selectCenter(evt.getPoint());
-                break;
-            default:
-                break;
+            default -> {
+            }
         }
+        drawActionPerformed(null);
     }
 
     /**
@@ -173,6 +167,7 @@ public class MainFrame extends javax.swing.JFrame {
         sys.initImage();
         BufferedImage image = sys.createImage();
         drawPanel.setImgage(image);
+        drawPanel.clearRect();
     }//GEN-LAST:event_drawActionPerformed
 
     private void resetAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetAreaActionPerformed

@@ -10,10 +10,10 @@ import java.util.EventObject;
  */
 public class GuiEvent extends EventObject {
 
-    //イベントの種類
+    //Types of events
     public static enum EventType {
-        NewArea,//表示領域変更
-        SetCenter;//中心変更
+        NewArea,//Changing display area
+        SetCenter;//Chinging display center
     }
 
     private final EventType eventType;

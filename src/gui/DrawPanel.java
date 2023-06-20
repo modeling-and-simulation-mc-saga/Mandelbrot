@@ -11,8 +11,6 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 
 /**
@@ -45,8 +43,6 @@ implements MouseListener, MouseMotionListener
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); 
         Graphics2D gg=(Graphics2D)g;
-//        gg.translate(0, getWidth());
-//        gg.scale(1, -1);
         gg.drawImage(image, null,10,10);
         if(point !=null){
             gg.setColor(Color.red);
@@ -156,6 +152,10 @@ implements MouseListener, MouseMotionListener
         return point2;
     }
 
+    public void clearRect(){
+        point = null;
+        point2 = null;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
